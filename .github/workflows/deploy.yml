@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     name: build image
-    runs-on: nginx:alpine
+    runs-on: ubuntu:latest
 
     steps: 
 
