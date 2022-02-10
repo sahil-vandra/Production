@@ -3,7 +3,7 @@
     "containerDefinitions": [
         {
 	    "image": "997817439961.dkr.ecr.ap-south-1.amazonaws.com/sahil-demo:prod-img",
-            "name": "NAME",
+            "name": undefined,
 	    "essential": true,
             "portMappings": [
                 {
