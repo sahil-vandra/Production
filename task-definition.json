@@ -2,7 +2,7 @@
     "family": FAMILY,
     "containerDefinitions": [
         {
-"image": "997817439961.dkr.ecr.ap-south-1.amazonaws.com/sahil-demo:prod-img"
+	    "image": "997817439961.dkr.ecr.ap-south-1.amazonaws.com/sahil-demo:prod-img",
             "name": NAME,
 	    "essential": true,
             "portMappings": [
@@ -19,5 +19,5 @@
              "FARGATE"
     ],
     "networkMode": "awsvpc",
-"executionRoleArn": "arn:aws:iam::997817439961:role/ecsTaskExecutionRole"
+    "executionRoleArn": "arn:aws:iam::997817439961:role/ecsTaskExecutionRole"
 }
