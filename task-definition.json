@@ -3,14 +3,14 @@
     "containerDefinitions": [
         {
 	    "image": "997817439961.dkr.ecr.ap-south-1.amazonaws.com/sahil-demo:prod-img",
-            "name": NAME,
+            "name": "NAME",
 	    "essential": true,
             "portMappings": [
                 {
                     "containerPort": 3000,
                     "hostPort": 3000,
                 }
-            ]
+            ],
         }
     ],
     "cpu": "256",
