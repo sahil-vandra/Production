@@ -16,7 +16,7 @@ pipeline {
     }
     
     stages {
-        stage('Trigger pipeline and clone code') {
+        stage('Trigger pipeline and clone code ') {
             steps {
                 echo 'Someone push code on git.'
                 git branch: 'prod', url: 'https://github.com/sahil-vandra/Production.git'
