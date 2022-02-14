@@ -8,6 +8,7 @@ CLUSTER_NAME="Production-Cluster"
 SERVICE_NAME="Prod-Service"
 TASK_DEFINITION_NAME="Production"
 DESIRED_COUNT="1"
+ECR_IMAGE="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}:${IMAGE_TAG}"
 
 # login in to aws ecr
 aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 997817439961.dkr.ecr.ap-south-1.amazonaws.com
@@ -19,7 +20,8 @@ docker build -t ${IMAGE_TAG} .
 docker tag ${IMAGE_TAG}:latest 997817439961.dkr.ecr.ap-south-1.amazonaws.com/sahil-demo:${IMAGE_TAG}
 
 # push image in aws ecr
-docker push 997817439961.dkr.ecr.ap-south-1.amazonaws.com/sahil-demo:${IMAGE_TAG}
+#docker push 997817439961.dkr.ecr.ap-south-1.amazonaws.com/sahil-demo:${IMAGE_TAG}
+docker push ${ECR_IMAGE}
 
 # get role arn store in variable 
 ROLE_ARN=`aws ecs describe-task-definition --task-definition "${TASK_DEFINITION_NAME}" --region "${AWS_DEFAULT_REGION}" | jq .taskDefinition.executionRoleArn`
@@ -33,7 +35,7 @@ NAME=`aws ecs describe-task-definition --task-definition "${TASK_DEFINITION_NAME
 #echo "NAME= " $NAME
 
 # find and replace some content in task-definition file
-sed -i "s#BUILD_NUMBER#$IMAGE_TAG#g" task-definition.json
+sed -i "s#BUILD_NUMBER#$ECR_IMAGE#g" task-definition.json
 sed -i "s#REPOSITORY_URI#$REPOSITORY_URI#g" task-definition.json
 sed -i "s#ROLE_ARN#$ROLE_ARN#g" task-definition.json
 sed -i "s#FAMILY#$FAMILY#g" task-definition.json
