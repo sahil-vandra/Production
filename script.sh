@@ -44,6 +44,8 @@ TASK_DEF_REVISION=`aws ecs describe-task-definition --task-definition "${TASK_DE
 
 TASK_DEF_REVISION=$((TASK_DEF_REVISION-4))
 
+cat task-definition.json
+
 # register new task definition from new generated task definition file
 aws ecs register-task-definition --cli-input-json file://task-definition.json --region="${AWS_DEFAULT_REGION}"
 
