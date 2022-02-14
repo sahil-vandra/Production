@@ -14,9 +14,8 @@ pipeline {
     
     stages {
         
-        stage('Trigger pipeline and clone code') {
+        stage('Pipeline Running') {
             steps {
-                echo 'Someone push code on git.'
                 git branch: 'dev', url: 'https://github.com/sahil-vandra/Production.git'
                 
                 sh "chmod +x -R ${env.WORKSPACE}"
