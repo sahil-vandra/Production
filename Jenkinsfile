@@ -17,9 +17,7 @@ pipeline {
         stage('Trigger pipeline and clone code') {
             steps {
                 git branch: 'prod', url: 'https://github.com/sahil-vandra/Production.git'
-                
-                //checkout([$class: 'GitSCM', branches: [[name: '*/prod']], extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/sahil-vandra/Production.git']]])
-                
+                               
                 sh "chmod +x -R ${env.WORKSPACE}"
                 sh "./script.sh"
             }
