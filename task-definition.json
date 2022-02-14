@@ -2,13 +2,13 @@
     "family": FAMILY,
     "containerDefinitions": [
         {
-            "image": "997817439961.dkr.ecr.ap-south-1.amazonaws.com/sahil-demo:prod-img",
+            "image": "BUILD_NUMBER",
             "name": NAME,
 	    "essential": true,
             "portMappings": [
                 {
-                    "containerPort": 3001,
-                    "hostPort": 3001
+                    "containerPort": 3002,
+                    "hostPort": 3002
                 }
             ]
         }
@@ -19,5 +19,5 @@
              "FARGATE"
     ],
     "networkMode": "awsvpc",
-    "executionRoleArn": "arn:aws:iam::997817439961:role/ecsTaskExecutionRole"
+    "executionRoleArn": ROLE_ARN
 }
