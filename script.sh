@@ -17,7 +17,8 @@ aws ecr get-login-password --region ap-south-1 | docker login --username AWS --p
 docker build -t ${IMAGE_TAG} .
 
 # tag image
-docker tag ${IMAGE_TAG}:latest 997817439961.dkr.ecr.ap-south-1.amazonaws.com/sahil-demo:${IMAGE_TAG}
+#docker tag ${IMAGE_TAG}:latest 997817439961.dkr.ecr.ap-south-1.amazonaws.com/sahil-demo:${IMAGE_TAG}
+docker tag ${IMAGE_TAG}:latest ${ECR_IMAGE}
 
 # push image in aws ecr
 #docker push 997817439961.dkr.ecr.ap-south-1.amazonaws.com/sahil-demo:${IMAGE_TAG}
