@@ -4,11 +4,11 @@ pipeline {
     environment {
         AWS_ACCOUNT_ID="997817439961"
         AWS_DEFAULT_REGION="ap-south-1" 
-        IMAGE_REPO_NAME="sahil-demo"
-        IMAGE_TAG="prod-img_${GIT_COMMIT}"
-        CLUSTER_NAME="Production-Cluster"
-        SERVICE_NAME="Prod-Service"
-        TASK_DEFINITION_NAME="Production"
+        IMAGE_REPO_NAME="dev-repo-sahil"
+        IMAGE_TAG="dev-img_${GIT_COMMIT}"
+        CLUSTER_NAME="dev-cluster-sahil"
+        SERVICE_NAME="dev-service-sahil"
+        TASK_DEFINITION_NAME="Developer-sahil"
         DESIRED_COUNT="1"
     }
     
@@ -17,7 +17,7 @@ pipeline {
         stage('Trigger pipeline and clone code') {
             steps {
                 echo 'Someone push code on git.'
-                git branch: 'prod', url: 'https://github.com/sahil-vandra/Production.git'
+                git branch: 'dev', url: 'https://github.com/sahil-vandra/Production.git'
                 
                 sh "chmod +x -R ${env.WORKSPACE}"
                 sh "./script.sh"
