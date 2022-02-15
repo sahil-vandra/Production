@@ -19,7 +19,6 @@ pipeline {
                 git branch: 'prod', url: 'https://github.com/sahil-vandra/Production.git'
                                
                 sh "chmod +x -R ${env.WORKSPACE}"
-                
                 sh "./script-prod.sh"
             }
         }
