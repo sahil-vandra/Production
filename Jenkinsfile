@@ -15,7 +15,7 @@ pipeline {
         
         stage('Trigger pipeline and clone code') {
             steps {
-                git branch: 'main', url: 'https://github.com/sahil-vandra/deploy-react-app-ci-cd-ecs.git'
+                git branch: 'dev', url: 'https://github.com/sahil-vandra/Production.git'
                                
                 sh "chmod +x -R ${env.WORKSPACE}"
                 sh "./script-prod.sh"
